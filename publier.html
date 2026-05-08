@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publier une Actualité - Pont-sur-Yonne</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-blue-900 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <div class="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden">
+        <!-- Entête -->
+        <div class="bg-orange-500 p-6 text-white text-center">
+            <h1 class="text-2xl font-black italic uppercase tracking-tighter">Espace Commerçant</h1>
+            <p class="text-xs opacity-90 font-bold uppercase tracking-widest mt-1">Diffusez votre actu en 30 secondes</p>
+        </div>
+
+        <!-- Formulaire -->
+        <form class="p-8 space-y-5" onsubmit="event.preventDefault(); alert('Félicitations ! Votre actualité est en cours de validation. Elle sera publiée sur le site et envoyée par Newsletter d\'ici quelques minutes.');">
+            
+            <!-- Identité -->
+            <div>
+                <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Votre Commerce</label>
+                <select class="w-full border-2 border-slate-100 rounded-xl p-3 bg-slate-50 font-bold text-slate-700 outline-none focus:border-orange-500 transition-all">
+                    <option>Sélectionnez votre boutique...</option>
+                    <option>Boulangerie du Pont</option>
+                    <option>Le Dressing de Pont</option>
+                    <option>Restaurant Le Commerce</option>
+                    <option>Coiffure Mixte</option>
+                </select>
+            </div>
+
+            <!-- Titre -->
+            <div>
+                <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Titre de l'actu</label>
+                <input type="text" placeholder="Ex: Arrivage de fraises locales !" 
+                       class="w-full border-2 border-slate-100 rounded-xl p-3 outline-none focus:border-orange-500 transition-all font-medium">
+            </div>
+
+            <!-- Message -->
+            <div>
+                <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Votre message (Promo, horaires...)</label>
+                <textarea rows="3" placeholder="Dites-en un peu plus aux habitants..." 
+                          class="w-full border-2 border-slate-100 rounded-xl p-3 outline-none focus:border-orange-500 transition-all font-medium"></textarea>
+            </div>
+
+            <!-- Photo -->
+            <div class="border-2 border-dashed border-slate-200 rounded-2xl p-6 text-center hover:bg-slate-50 transition-colors cursor-pointer">
+                <i class="fa-solid fa-camera text-3xl text-slate-300 mb-2"></i>
+                <p class="text-xs font-bold text-slate-500">Ajouter une photo du produit</p>
+                <input type="file" class="hidden">
+            </div>
+
+            <!-- Bouton de validation -->
+            <button type="submit" class="w-full bg-blue-800 hover:bg-blue-700 text-white font-black py-4 rounded-2xl shadow-xl transition-transform active:scale-95 flex items-center justify-center gap-3">
+                <i class="fa-solid fa-paper-plane"></i>
+                LANCER LA PUBLICATION
+            </button>
+
+            <p class="text-[9px] text-center text-slate-400 italic">
+                En publiant, votre message sera automatiquement formaté pour le site web et la newsletter hebdomadaire.
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>

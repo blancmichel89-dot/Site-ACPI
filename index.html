@@ -3,137 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACPI Association des commercants de Pont sur Yonne</title>
+    <title>ACPI - Association des Commerçants de Pont-sur-Yonne</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
+        .bg-terroir { background-color: #1a2e26; } /* Vert forêt chic */
+        .text-gold { color: #c5a059; } /* Or doux */
+        .bg-gold { background-color: #c5a059; }
+        .border-gold { border-color: #c5a059; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans">
+<body class="bg-[#fdfcf8] text-slate-800">
 
-    <!-- HEADER & NAVIGATION -->
-    <header class="bg-blue-800 text-white p-4 shadow-xl sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <div>
-                <h1 class="text-xl font-black tracking-tighter uppercase italic">ACPI Association des commercantsde Pont-sur-Yonne<span class="text-orange-400">.Actu</span></h1>
-                <p class="text-[10px] uppercase tracking-widest opacity-80 font-bold">Les dernieres actus de nos commercants, c'est Ici!</p>
+    <!-- HEADER -->
+    <header class="bg-terroir text-white shadow-2xl sticky top-0 z-50 border-b border-gold/30">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex flex-col">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gold">ACPI</h1>
+                <p class="text-[10px] uppercase tracking-[0.2em] font-light text-slate-300">Pont-sur-Yonne & Vous</p>
             </div>
-            <div class="hidden md:flex space-x-6 font-bold text-sm">
-                <a href="#actus" class="hover:text-orange-400 transition">ACTUALITÉS</a>
-                <a href="#annuaire" class="hover:text-orange-400 transition">ANNUAIRE</a>
-                <a href="#newsletter" class="hover:text-orange-400 transition text-orange-400">NEWSLETTER</a>
-            </div>
-            <button class="bg-white text-blue-800 px-4 py-2 rounded-lg font-bold text-xs shadow-lg hover:bg-orange-400 hover:text-white transition-all">
-                ACCÈS ADHÉRENT <i class="fa-solid fa-lock ml-1"></i>
-            </button>
+            <nav class="hidden lg:flex space-x-8 text-xs font-semibold tracking-widest uppercase">
+                <a href="#actus" class="hover:text-gold transition">Le Mag</a>
+                <a href="#annuaire" class="hover:text-gold transition">Annuaire</a>
+                <a href="#newsletter" class="hover:text-gold transition">S'abonner</a>
+            </nav>
+            <a href="publier.html" class="border border-gold text-gold px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-gold hover:text-white transition-all uppercase">
+                Accès Adhérent <i class="fa-solid fa-lock ml-2"></i>
+            </a>
         </div>
     </header>
 
-    <!-- SECTION 1 : ESPACE ADHÉRENTS (L'outil de production) -->
-    <section class="bg-blue-900 text-white py-10 px-4 border-b-4 border-orange-500">
-        <div class="container mx-auto max-w-4xl">
-            <div class="flex items-center gap-4 mb-6">
-                <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-black italic">PRO</span>
-                <h2 class="text-2xl font-bold italic uppercase">Espace de Publication Rapide</h2>
-            </div>
-            <div class="grid md:grid-cols-2 gap-6 bg-white/10 p-6 rounded-3xl backdrop-blur-sm border border-white/20">
-                <div class="space-y-4">
-                    <p class="text-blue-100 text-sm leading-relaxed">
-                        <i class="fa-solid fa-circle-check text-orange-400 mr-2"></i> Postez une photo, un titre et une promo. <br>
-                        <i class="fa-solid fa-circle-check text-orange-400 mr-2"></i> Diffusion instantanée sur le site. <br>
-                        <i class="fa-solid fa-circle-check text-orange-400 mr-2"></i> Envoi automatique en newsletter.
-                    </p>
-                    <a href="publier.html" class="w-full bg-orange-500 hover:bg-orange-600 p-4 rounded-2xl font-black text-lg transition shadow-xl text-center block">
-                        <i class="fa-solid fa-paper-plane mr-2"></i> PUBLIER UNE NEWS
-                    </button>
-                </div>
-                <div class="hidden md:flex items-center justify-center border-l border-white/10 pl-6">
-                    <i class="fa-solid fa-mobile-screen-button text-6xl text-blue-300 opacity-50"></i>
-                    <p class="ml-4 text-xs italic text-blue-200 underline">Optimisé pour smartphone</p>
+    <!-- HERO / PRO SECTION (Plus subtile) -->
+    <section class="relative bg-terroir py-16 px-6 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 flex justify-center items-center pointer-events-none">
+            <i class="fa-solid fa-leaf text-[40rem] rotate-12"></i>
+        </div>
+        <div class="container mx-auto max-w-4xl relative z-10">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-[2rem] shadow-inner text-center">
+                <h2 class="text-3xl md:text-4xl text-white mb-6">Faites briller votre commerce</h2>
+                <p class="text-slate-300 font-light text-lg mb-10 max-w-2xl mx-auto italic">
+                    "Une vitrine numérique élégante pour les artisans de notre terroir."
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="publier.html" class="bg-gold text-white px-8 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-pen-nib"></i> PUBLIER UNE NOUVELLE
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2 : FLUX ACTUS (Côté Clients) -->
-    <main id="actus" class="container mx-auto max-w-4xl p-6">
-        <h3 class="text-2xl font-black mb-8 border-l-8 border-blue-800 pl-4 uppercase italic">Les dernières nouvelles</h3>
+    <!-- SECTION ACTUS / LE MAG -->
+    <main id="actus" class="container mx-auto max-w-5xl py-20 px-6">
+        <div class="flex flex-col items-center mb-16">
+            <h3 class="text-4xl font-bold text-terroir mb-2">Les Nouvelles Locales</h3>
+            <div class="h-1 w-20 bg-gold rounded-full"></div>
+        </div>
         
-        <div class="space-y-8">
-            <!-- News 1 -->
-            <article class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-xl transition-all">
-                <div class="md:flex">
-                    <div class="md:w-1/3 bg-slate-200 h-48 md:h-auto flex items-center justify-center relative">
-                        <i class="fa-solid fa-camera text-4xl text-slate-400"></i>
-                        <span class="absolute top-4 left-4 bg-blue-800 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter italic">Boulangerie</span>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- News 1 (Design Carte Magazine) -->
+            <article class="group cursor-pointer">
+                <div class="overflow-hidden rounded-2xl mb-6 shadow-xl aspect-[16/10] bg-slate-200 relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-terroir/80 to-transparent flex items-end p-6">
+                        <span class="bg-gold text-white text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">Boulangerie</span>
                     </div>
-                    <div class="p-6 md:w-2/3">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-xs font-bold text-orange-600 italic">🔥 PROMOTION DU JOUR</span>
-                            <span class="text-xs text-slate-400 italic">Il y a 2h</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-2">Le café de la gare paie son coup!</h4>
-                        <p class="text-slate-600 text-sm mb-4">Pour tous les adhérants a l'association ACPI et ceux qui ont bien voulu venir a la réunion.</p>
-                        <div class="flex items-center gap-2 pt-4 border-t border-slate-50">
-                            <span class="text-[10px] font-bold text-blue-800 uppercase italic"><i class="fa-solid fa-envelope"></i> Envoyé par Newsletter</span>
-                        </div>
+                    <i class="fa-solid fa-image text-4xl text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="px-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-gold font-bold text-xs uppercase tracking-widest italic">Événement</span>
+                        <span class="text-slate-400 text-xs italic">8 Mai 2026</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-terroir mb-3 group-hover:text-gold transition-colors leading-tight">Le café de la gare paie son coup !</h4>
+                    <p class="text-slate-600 leading-relaxed font-light mb-4 text-sm">
+                        Pour célébrer notre nouvelle union, nous invitons tous les membres de l'ACPI à une dégustation privée. L'occasion de tisser des liens...
+                    </p>
+                    <div class="flex items-center gap-2 text-[10px] font-bold text-terroir/50 uppercase tracking-widest">
+                        <i class="fa-solid fa-paper-plane text-gold"></i> Diffusé par l'Association
                     </div>
                 </div>
             </article>
 
             <!-- News 2 -->
-            <article class="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 hover:shadow-xl transition-all">
-                <div class="flex justify-between items-center mb-4">
-                    <span class="bg-green-100 text-green-700 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter">Nouveau commerce</span>
-                    <span class="text-xs text-slate-400 italic">Hier</span>
+            <article class="group cursor-pointer">
+                <div class="overflow-hidden rounded-2xl mb-6 shadow-xl aspect-[16/10] bg-slate-200 relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-terroir/80 to-transparent flex items-end p-6">
+                        <span class="bg-gold text-white text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">Coiffure</span>
+                    </div>
+                    <i class="fa-solid fa-image text-4xl text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
                 </div>
-                <h4 class="text-xl font-bold mb-2 text-blue-900">Bienvenue à "L'Atelier des Styles"</h4>
-                <p class="text-slate-600 text-sm">Votre nouveau salon de coiffure ouvre ses portes Place de la République. Prenez rendez-vous dès maintenant !</p>
+                <div class="px-2">
+                    <div class="flex justify-between items-center mb-3 text-xs">
+                        <span class="text-gold font-bold uppercase tracking-widest italic">Nouveau</span>
+                        <span class="text-slate-400 italic">Hier</span>
+                    </div>
+                    <h4 class="text-2xl font-bold text-terroir mb-3 group-hover:text-gold transition-colors">Bienvenue à "L'Atelier des Styles"</h4>
+                    <p class="text-slate-600 leading-relaxed font-light mb-4 text-sm">
+                        Une nouvelle adresse pour votre élégance Place de la République. Découvrez un univers dédié au soin et au bien-être.
+                    </p>
+                </div>
             </article>
         </div>
     </main>
 
-    <!-- SECTION 3 : ANNUAIRE SEO (Le catalogue) -->
-    <section id="annuaire" class="bg-slate-200 py-12 px-6">
-        <div class="container mx-auto max-w-4xl">
-            <h3 class="text-2xl font-black mb-8 border-l-8 border-orange-500 pl-4 uppercase italic italic">Annuaire de Référencement</h3>
+    <!-- SECTION ANNUAIRE (Plus épuré / Bottin mondain) -->
+    <section id="annuaire" class="bg-[#f4f1ea] py-24 px-6 border-y border-slate-200">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl font-bold text-terroir mb-4 uppercase tracking-widest">Répertoire des Adhérents</h3>
+                <p class="text-slate-500 font-serif italic italic font-light">"Soutenir l'économie locale, c'est préserver notre village."</p>
+            </div>
             
-            <div class="grid md:grid-cols-2 gap-4">
-                <!-- Commerce 1 -->
-                <div class="bg-white p-5 rounded-2xl flex items-center gap-4 border border-slate-300 hover:border-blue-500 transition-colors" itemscope itemtype="https://schema.org/LocalBusiness">
-                    <div class="w-12 h-12 bg-blue-800 text-white rounded-xl flex items-center justify-center font-black">PY</div>
-                    <div>
-                        <h5 class="font-bold" itemprop="name">Le Dressing de Pont</h5>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Habillement / Mode</p>
-                        <p class="text-xs italic text-blue-600">Boosté par l'association 🚀</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Carte Commerce -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    <div class="h-12 w-12 bg-terroir text-gold rounded-full flex items-center justify-center mb-6 shadow-lg">
+                        <i class="fa-solid fa-shop"></i>
                     </div>
+                    <h5 class="text-lg font-bold text-terroir mb-1">Le Dressing de Pont</h5>
+                    <p class="text-[10px] uppercase tracking-widest text-gold font-bold mb-4">Mode & Habillement</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="text-xs text-slate-500 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot w-4"></i> Rue Gambetta
+                        </p>
+                    </div>
+                    <a href="#" class="text-[10px] font-black uppercase tracking-widest text-terroir hover:text-gold flex items-center gap-2">
+                        Découvrir <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
-                <!-- Commerce 2 -->
-                <div class="bg-white p-5 rounded-2xl flex items-center gap-4 border border-slate-300 hover:border-blue-500 transition-colors">
-                    <div class="w-12 h-12 bg-orange-500 text-white rounded-xl flex items-center justify-center font-black italic">LC</div>
-                    <div>
-                        <h5 class="font-bold">Hôtel-Restaurant Le Commerce</h5>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Restauration</p>
-                        <p class="text-xs italic text-blue-600 font-medium">Référencement Local Actif ✅</p>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    <div class="h-12 w-12 bg-terroir text-gold rounded-full flex items-center justify-center mb-6 shadow-lg italic">LC</div>
+                    <h5 class="text-lg font-bold text-terroir mb-1">Hôtel-Restaurant</h5>
+                    <p class="text-[10px] uppercase tracking-widest text-gold font-bold mb-4">Gastronomie</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="text-xs text-slate-500 flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot w-4"></i> Place de la République
+                        </p>
                     </div>
+                    <a href="#" class="text-[10px] font-black uppercase tracking-widest text-terroir hover:text-gold flex items-center gap-2">
+                        Découvrir <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4 : NEWSLETTER (Le lien final) -->
-    <section id="newsletter" class="py-16 bg-blue-800 text-white px-6">
-        <div class="container mx-auto max-w-2xl text-center">
-            <i class="fa-solid fa-paper-plane text-5xl text-orange-400 mb-6"></i>
-            <h3 class="text-3xl font-black mb-4">Ne manquez plus une promo !</h3>
-            <p class="mb-8 text-blue-100 italic">Inscrivez-vous pour recevoir les actualités des commerçants de Pont-sur-Yonne directement par mail.</p>
-            <div class="flex flex-col md:flex-row gap-2">
-                <input type="email" placeholder="votre@email.com" class="flex-1 p-4 rounded-2xl text-slate-900 font-bold focus:ring-4 focus:ring-orange-500 outline-none">
-                <button class="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-2xl font-black transition shadow-xl">S'ABONNER</button>
+    <!-- SECTION NEWSLETTER -->
+    <section id="newsletter" class="py-24 bg-terroir text-white text-center relative overflow-hidden">
+        <div class="container mx-auto max-w-2xl px-6 relative z-10">
+            <h3 class="text-4xl font-bold mb-6 italic text-gold">La Gazette de l'ACPI</h3>
+            <p class="mb-10 text-slate-300 font-light leading-relaxed">
+                Recevez chaque semaine les meilleures offres, les nouveaux produits et les événements de nos commerçants.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Votre adresse email" class="flex-1 bg-white/10 border border-white/20 p-4 rounded-full text-white outline-none focus:border-gold transition-all">
+                <button class="bg-gold hover:bg-[#b08d4a] text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all uppercase text-xs tracking-widest">
+                    S'abonner
+                </button>
             </div>
         </div>
     </section>
 
-    <footer class="p-10 text-center text-slate-400 text-[10px] uppercase tracking-widest">
-        <p>© 2026 Association des Commerçants de Pont-sur-Yonne - Agitateur de commerce local</p>
+    <footer class="py-12 text-center text-slate-400 text-[10px] uppercase tracking-[0.3em]">
+        <p>© 2026 ACPI - L'élégance du commerce de proximité</p>
     </footer>
 
 </body>

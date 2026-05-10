@@ -1,176 +1,1254 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACPI - Association des Commerçants de Pont-sur-Yonne</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3, h4, .font-serif { font-family: 'Playfair Display', serif; }
-        .bg-terroir { background-color: #1a2e26; } /* Vert forêt chic */
-        .text-gold { color: #c5a059; } /* Or doux */
-        .bg-gold { background-color: #c5a059; }
-        .border-gold { border-color: #c5a059; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACPY — Association des Commerçants de Pont-sur-Yonne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --cream: #f7f3ec;
+  --cream-deep: #ede6d7;
+  --ink: #1c2620;
+  --moss: #2d4a3a;
+  --moss-deep: #1a3025;
+  --leaf: #4a7a5c;
+  --terracotta: #c66b3d;
+  --terracotta-soft: #e89971;
+  --gold: #b8893a;
+  --paper: #fdfbf6;
+  --line: #d9cfb8;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+.serif { font-family: 'Fraunces', serif; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+@media (max-width: 640px) { .container { padding: 0 1.25rem; } }
+
+/* ======================== TOPBAR ======================== */
+.topbar {
+  background: var(--moss-deep);
+  color: var(--cream);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.6rem 0;
+  font-weight: 500;
+}
+.topbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.topbar a { color: var(--cream); text-decoration: none; opacity: 0.85; transition: opacity .2s; }
+.topbar a:hover { opacity: 1; color: var(--terracotta-soft); }
+
+/* ======================== HEADER ======================== */
+header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(253, 251, 246, 0.92);
+}
+.nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1rem 0;
+}
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.logo-block img {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+.logo-text h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.35rem;
+  color: var(--moss-deep);
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.logo-text p {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: color .2s;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--terracotta);
+  transition: width .25s ease;
+}
+nav a:hover { color: var(--moss-deep); }
+nav a:hover::after { width: 100%; }
+.cta-pill {
+  background: var(--moss-deep);
+  color: var(--cream) !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: background .2s, transform .2s;
+}
+.cta-pill:hover { background: var(--terracotta); transform: translateY(-1px); }
+.cta-pill::after { display: none; }
+@media (max-width: 900px) {
+  nav ul { gap: 1.2rem; }
+  nav ul li:not(:last-child) { display: none; }
+}
+
+/* ======================== HERO ======================== */
+.hero {
+  position: relative;
+  padding: 5rem 0 6rem;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero { padding: 3rem 0 4rem; }
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--terracotta);
+}
+.hero h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.02;
+  color: var(--moss-deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.8rem;
+}
+.hero h2 em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--ink);
+  opacity: 0.78;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--terracotta);
+  color: white;
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: all .25s;
+  box-shadow: 0 4px 16px rgba(198, 107, 61, 0.25);
+}
+.btn-primary:hover {
+  background: var(--moss-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28, 38, 32, 0.25);
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--moss-deep);
+  padding: 1rem 1.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border: 1.5px solid var(--moss-deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  transition: all .25s;
+}
+.btn-secondary:hover {
+  background: var(--moss-deep);
+  color: var(--cream);
+}
+
+/* HERO IMAGE - vraie photo de Pont-sur-Yonne (Unsplash placeholder) */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 4px;
+}
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 20px; left: 20px; right: -20px; bottom: -20px;
+  border: 1.5px solid var(--moss);
+  border-radius: 4px;
+  z-index: 0;
+}
+.hero-visual-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(28, 38, 32, 0.18);
+}
+.hero-visual-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.95) contrast(1.02);
+}
+.hero-badge {
+  position: absolute;
+  bottom: -28px;
+  left: -28px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 1.2rem 1.4rem;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  max-width: 220px;
+}
+.hero-badge-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--terracotta);
+  line-height: 1;
+}
+.hero-badge p {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.7;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+/* ======================== STRIP DECORATIVE ======================== */
+.strip {
+  background: var(--moss-deep);
+  color: var(--cream);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  position: relative;
+}
+.strip-track {
+  display: flex;
+  gap: 3rem;
+  white-space: nowrap;
+  animation: scroll 40s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.strip-track span { display: inline-flex; align-items: center; gap: 3rem; }
+.strip-track i { color: var(--terracotta-soft); font-style: normal; }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ======================== MAG SECTION ======================== */
+.mag {
+  padding: 6rem 0;
+  background: var(--paper);
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.section-head-text h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--moss-deep);
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+.section-head-text h3 em {
+  font-style: italic;
+  color: var(--terracotta);
+  font-weight: 400;
+}
+.section-head-text p {
+  margin-top: 0.6rem;
+  color: var(--leaf);
+  font-size: 0.95rem;
+  max-width: 420px;
+}
+.section-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--moss-deep);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid var(--moss-deep);
+  padding-bottom: 4px;
+  transition: gap .2s;
+}
+.section-link:hover { gap: 1rem; color: var(--terracotta); border-color: var(--terracotta); }
+
+.mag-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+}
+@media (max-width: 900px) { .mag-grid { grid-template-columns: 1fr; } }
+
+.article-feature {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+}
+.article-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+.article-feature:hover img { transform: scale(1.04); }
+.article-feature-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 48, 37, 0.95) 0%, rgba(26, 48, 37, 0.4) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 2.5rem;
+  color: white;
+}
+.article-feature-tag {
+  align-self: start;
+  background: var(--terracotta);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+.article-feature-overlay h4 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.01em;
+}
+.article-feature-overlay p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  max-width: 480px;
+  line-height: 1.5;
+}
+.article-feature-meta {
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.article-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.article-card {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  transition: transform .2s;
+}
+.article-card:last-child { border-bottom: none; }
+.article-card:hover { transform: translateX(4px); }
+.article-card-img {
+  aspect-ratio: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--cream-deep);
+}
+.article-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.article-card-content .tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+}
+.article-card-content h5 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0.5rem;
+  color: var(--moss-deep);
+  line-height: 1.25;
+  letter-spacing: -0.005em;
+}
+.article-card-content .date {
+  font-size: 0.75rem;
+  color: var(--leaf);
+}
+
+/* ======================== ANNUAIRE ======================== */
+.annuaire {
+  background: var(--cream-deep);
+  padding: 6rem 0;
+  position: relative;
+}
+.annuaire::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 30%, rgba(198, 107, 61, 0.04) 0%, transparent 40%),
+                    radial-gradient(circle at 80% 70%, rgba(45, 74, 58, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+.annuaire .container { position: relative; z-index: 1; }
+.filters {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.filter-pill {
+  padding: 0.55rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+  color: var(--ink);
+}
+.filter-pill:hover { border-color: var(--moss); }
+.filter-pill.active {
+  background: var(--moss-deep);
+  color: var(--cream);
+  border-color: var(--moss-deep);
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.shop-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all .3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.shop-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--moss);
+  box-shadow: 0 16px 40px rgba(28, 38, 32, 0.1);
+}
+.shop-card-img {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--cream-deep);
+  position: relative;
+}
+.shop-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s;
+}
+.shop-card:hover .shop-card-img img { transform: scale(1.05); }
+.shop-card-cat {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(253, 251, 246, 0.95);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--moss-deep);
+}
+.shop-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.shop-card h5 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--moss-deep);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.shop-card-addr {
+  font-size: 0.85rem;
+  color: var(--leaf);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.shop-card-link {
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: start;
+}
+
+/* ======================== EVENT BANNER ======================== */
+.event-banner {
+  padding: 6rem 0;
+  background: var(--paper);
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+@media (max-width: 900px) { .event-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+.event-img {
+  aspect-ratio: 5/4;
+  overflow: hidden;
+  border-radius: 4px;
+  position: relative;
+}
+.event-img img { width: 100%; height: 100%; object-fit: cover; }
+.event-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(45, 74, 58, 0.15));
+}
+.event-content .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.event-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--moss-deep);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.event-content h3 em { font-style: italic; color: var(--terracotta); }
+.event-content p {
+  color: var(--ink);
+  opacity: 0.78;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+.event-meta {
+  display: flex;
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.event-meta-item small {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--leaf);
+  font-weight: 600;
+}
+.event-meta-item div {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--moss-deep);
+  margin-top: 0.3rem;
+}
+
+/* ======================== NEWSLETTER ======================== */
+.newsletter {
+  background: var(--moss-deep);
+  color: var(--cream);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.newsletter::before {
+  content: 'ACPY';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(15rem, 35vw, 28rem);
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255,255,255,0.025);
+  letter-spacing: -0.04em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.newsletter-content {
+  position: relative;
+  max-width: 580px;
+  margin: 0 auto;
+  text-align: center;
+}
+.newsletter-content .eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--terracotta-soft);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.newsletter-content h3 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.newsletter-content h3 em { font-style: italic; color: var(--terracotta-soft); font-weight: 400; }
+.newsletter-content p {
+  opacity: 0.8;
+  margin-bottom: 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+.newsletter-form {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 480px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 220px;
+  padding: 1rem 1.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 999px;
+  color: var(--cream);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color .2s;
+}
+.newsletter-form input::placeholder { color: rgba(247, 243, 236, 0.5); }
+.newsletter-form input:focus { border-color: var(--terracotta-soft); }
+.newsletter-form button {
+  padding: 1rem 2rem;
+  background: var(--terracotta);
+  color: white;
+  border: none;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.newsletter-form button:hover { background: var(--terracotta-soft); transform: translateY(-1px); }
+
+/* ======================== FOOTER ======================== */
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 4rem 0 2rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+@media (max-width: 900px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+}
+@media (max-width: 540px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+.footer-brand img { height: 56px; margin-bottom: 1.2rem; }
+.footer-brand p {
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  opacity: 0.7;
+  line-height: 1.6;
+  max-width: 320px;
+}
+.footer-col h6 {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--terracotta-soft);
+  margin-bottom: 1.2rem;
+}
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.7rem; }
+.footer-col a {
+  color: var(--cream);
+  text-decoration: none;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  transition: opacity .2s, color .2s;
+}
+.footer-col a:hover { opacity: 1; color: var(--terracotta-soft); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.socials { display: flex; gap: 1rem; }
+.socials a {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  transition: all .2s;
+  text-decoration: none;
+}
+.socials a:hover { background: var(--terracotta); border-color: var(--terracotta); }
+</style>
 </head>
-<body class="bg-[#fdfcf8] text-slate-800">
+<body>
 
-    <!-- HEADER -->
-    <header class="bg-terroir text-white shadow-2xl sticky top-0 z-50 border-b border-gold/30">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex flex-col">
-                <h1 class="text-2xl md:text-3xl font-bold tracking-tight text-gold">ACPI</h1>
-                <p class="text-[10px] uppercase tracking-[0.2em] font-light text-slate-300">Pont-sur-Yonne & Vous</p>
-            </div>
-            <nav class="hidden lg:flex space-x-8 text-xs font-semibold tracking-widest uppercase">
-                <a href="#actus" class="hover:text-gold transition">Le Mag</a>
-                <a href="#annuaire" class="hover:text-gold transition">Annuaire</a>
-                <a href="#newsletter" class="hover:text-gold transition">S'abonner</a>
-            </nav>
-            <a href="publier.html" class="border border-gold text-gold px-5 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-gold hover:text-white transition-all uppercase">
-                Accès Adhérent <i class="fa-solid fa-lock ml-2"></i>
-            </a>
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="container topbar-content">
+    <span><i class="fa-solid fa-location-dot" style="margin-right:0.5rem;"></i>89140 · Pont-sur-Yonne · Bourgogne</span>
+    <span><a href="#newsletter">Recevoir la Gazette</a> · <a href="publier.html">Espace Adhérent</a></span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <div class="nav-wrap">
+      <div class="logo-block">
+        <!-- LOGO ACPY -->
+        <img src="logo-acpy.png" alt="Logo ACPY">
+        <div class="logo-text">
+          <h1>ACPY</h1>
+          <p>Pont-sur-Yonne</p>
         </div>
-    </header>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#mag">Le Mag</a></li>
+          <li><a href="#annuaire">Annuaire</a></li>
+          <li><a href="#evenement">Événements</a></li>
+          <li><a href="publier.html" class="cta-pill">Publier</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
 
-    <!-- HERO / PRO SECTION (Plus subtile) -->
-    <section class="relative bg-terroir py-16 px-6 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 flex justify-center items-center pointer-events-none">
-            <i class="fa-solid fa-leaf text-[40rem] rotate-12"></i>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">Association des commerçants · Depuis 1985</div>
+        <h2>Le commerce <em>vivant</em><br>de notre village.</h2>
+        <p class="hero-lead">
+          Nous sommes les artisans, restaurateurs, coiffeurs et boutiquiers qui font battre le cœur de Pont-sur-Yonne. Découvrez nos enseignes, suivez nos actualités, soutenez notre village.
+        </p>
+        <div class="hero-actions">
+          <a href="#annuaire" class="btn-primary">
+            <i class="fa-solid fa-store"></i> Découvrir nos commerces
+          </a>
+          <a href="#mag" class="btn-secondary">
+            Lire le Mag <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
-        <div class="container mx-auto max-w-4xl relative z-10">
-            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-[2rem] shadow-inner text-center">
-                <h2 class="text-3xl md:text-4xl text-white mb-6">Faites briller votre commerce</h2>
-                <p class="text-slate-300 font-light text-lg mb-10 max-w-2xl mx-auto italic">
-                    "Une vitrine numérique élégante pour les artisans de notre terroir."
-                </p>
-                <div class="flex flex-col md:flex-row justify-center gap-4">
-                    <a href="publier.html" class="bg-gold text-white px-8 py-4 rounded-full font-bold shadow-lg hover:scale-105 transition-transform flex items-center justify-center gap-3">
-                        <i class="fa-solid fa-pen-nib"></i> PUBLIER UNE NOUVELLE
-                    </a>
-                </div>
-            </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-visual-frame">
+          <!-- À REMPLACER : photo emblématique de Pont-sur-Yonne (le Vieux Pont, l'Yonne...) -->
+          <img src="https://images.unsplash.com/photo-1564594985645-4427056e22e2?auto=format&fit=crop&w=900&q=80" alt="Pont-sur-Yonne">
         </div>
-    </section>
-
-    <!-- SECTION ACTUS / LE MAG -->
-    <main id="actus" class="container mx-auto max-w-5xl py-20 px-6">
-        <div class="flex flex-col items-center mb-16">
-            <h3 class="text-4xl font-bold text-terroir mb-2">Les Nouvelles Locales</h3>
-            <div class="h-1 w-20 bg-gold rounded-full"></div>
+        <div class="hero-badge">
+          <div class="hero-badge-num">9</div>
+          <p>Commerçants<br>recensés</p>
         </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- News 1 (Design Carte Magazine) -->
-            <article class="group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-6 shadow-xl aspect-[16/10] bg-slate-200 relative">
-                    <div class="absolute inset-0 bg-gradient-to-t from-terroir/80 to-transparent flex items-end p-6">
-                        <span class="bg-gold text-white text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">Boulangerie</span>
-                    </div>
-                    <i class="fa-solid fa-image text-4xl text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform"></i>
-                </div>
-                <div class="px-2">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-gold font-bold text-xs uppercase tracking-widest italic">Événement</span>
-                        <span class="text-slate-400 text-xs italic">8 Mai 2026</span>
-                    </div>
-                    <h4 class="text-2xl font-bold text-terroir mb-3 group-hover:text-gold transition-colors leading-tight">Le café de la gare paie son coup !</h4>
-                    <p class="text-slate-600 leading-relaxed font-light mb-4 text-sm">
-                        Pour célébrer notre nouvelle union, nous invitons tous les membres de l'ACPI à une dégustation privée. L'occasion de tisser des liens...
-                    </p>
-                    <div class="flex items-center gap-2 text-[10px] font-bold text-terroir/50 uppercase tracking-widest">
-                        <i class="fa-solid fa-paper-plane text-gold"></i> Diffusé par l'Association
-                    </div>
-                </div>
-            </article>
+      </div>
+    </div>
+  </div>
+</section>
 
-            <!-- News 2 -->
-            <article class="group cursor-pointer">
-                <div class="overflow-hidden rounded-2xl mb-6 shadow-xl aspect-[16/10] bg-slate-200 relative">
-                    <div class="absolute inset-0 bg-gradient-to-t from-terroir/80 to-transparent flex items-end p-6">
-                        <span class="bg-gold text-white text-[10px] px-3 py-1 rounded-full uppercase font-bold tracking-widest">Coiffure</span>
-                    </div>
-                    <i class="fa-solid fa-image text-4xl text-slate-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></i>
-                </div>
-                <div class="px-2">
-                    <div class="flex justify-between items-center mb-3 text-xs">
-                        <span class="text-gold font-bold uppercase tracking-widest italic">Nouveau</span>
-                        <span class="text-slate-400 italic">Hier</span>
-                    </div>
-                    <h4 class="text-2xl font-bold text-terroir mb-3 group-hover:text-gold transition-colors">Bienvenue à "L'Atelier des Styles"</h4>
-                    <p class="text-slate-600 leading-relaxed font-light mb-4 text-sm">
-                        Une nouvelle adresse pour votre élégance Place de la République. Découvrez un univers dédié au soin et au bien-être.
-                    </p>
-                </div>
-            </article>
+<!-- DEFILE -->
+<div class="strip">
+  <div class="strip-track">
+    <span>Boulangerie <i>•</i> Coiffure <i>•</i> Restauration <i>•</i> Mode <i>•</i> Fleuriste <i>•</i> Boucherie <i>•</i> Pharmacie <i>•</i> Librairie <i>•</i> Café <i>•</i> Hôtel <i>•</i></span>
+    <span>Boulangerie <i>•</i> Coiffure <i>•</i> Restauration <i>•</i> Mode <i>•</i> Fleuriste <i>•</i> Boucherie <i>•</i> Pharmacie <i>•</i> Librairie <i>•</i> Café <i>•</i> Hôtel <i>•</i></span>
+  </div>
+</div>
+
+<!-- LE MAG -->
+<section id="mag" class="mag">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h3>Les <em>nouvelles</em><br>de la rue principale.</h3>
+        <p>Ouvertures, événements, coups de cœur : ce qui se passe chez nos commerçants, raconté chaque semaine.</p>
+      </div>
+      <a href="#" class="section-link">Toutes les actus <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="mag-grid">
+      <!-- Article principal -->
+      <article class="article-feature">
+        <!-- À REMPLACER : photo de l'événement réel ACPY -->
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1100&q=80" alt="Restaurant">
+        <div class="article-feature-overlay">
+          <span class="article-feature-tag">À LA UNE</span>
+          <h4>Le Baraka : la table marocaine de la rue du Pont.</h4>
+          <p>Couscous, tajines, pâtisseries faites maison. Une adresse incontournable du village, à deux pas du Vieux Pont. Réservation : 06 89 48 11 22.</p>
+          <div class="article-feature-meta">4 rue du Pont · Pont-sur-Yonne</div>
         </div>
-    </main>
+      </article>
 
-    <!-- SECTION ANNUAIRE (Plus épuré / Bottin mondain) -->
-    <section id="annuaire" class="bg-[#f4f1ea] py-24 px-6 border-y border-slate-200">
-        <div class="container mx-auto max-w-5xl">
-            <div class="text-center mb-16">
-                <h3 class="text-3xl font-bold text-terroir mb-4 uppercase tracking-widest">Répertoire des Adhérents</h3>
-                <p class="text-slate-500 font-serif italic italic font-light">"Soutenir l'économie locale, c'est préserver notre village."</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Carte Commerce -->
-                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all">
-                    <div class="h-12 w-12 bg-terroir text-gold rounded-full flex items-center justify-center mb-6 shadow-lg">
-                        <i class="fa-solid fa-shop"></i>
-                    </div>
-                    <h5 class="text-lg font-bold text-terroir mb-1">Le Dressing de Pont</h5>
-                    <p class="text-[10px] uppercase tracking-widest text-gold font-bold mb-4">Mode & Habillement</p>
-                    <div class="space-y-2 mb-6">
-                        <p class="text-xs text-slate-500 flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot w-4"></i> Rue Gambetta
-                        </p>
-                    </div>
-                    <a href="#" class="text-[10px] font-black uppercase tracking-widest text-terroir hover:text-gold flex items-center gap-2">
-                        Découvrir <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
+      <!-- Liste articles -->
+      <div class="article-list">
+        <a href="#" class="article-card">
+          <div class="article-card-img">
+            <!-- À REMPLACER : photo du salon de coiffure -->
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div class="article-card-content">
+            <span class="tag">Nouveau</span>
+            <h5>Bienvenue à L'Atelier des Styles</h5>
+            <span class="date">Hier · Place de la République</span>
+          </div>
+        </a>
 
-                <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-1 transition-all">
-                    <div class="h-12 w-12 bg-terroir text-gold rounded-full flex items-center justify-center mb-6 shadow-lg italic">LC</div>
-                    <h5 class="text-lg font-bold text-terroir mb-1">Hôtel-Restaurant</h5>
-                    <p class="text-[10px] uppercase tracking-widest text-gold font-bold mb-4">Gastronomie</p>
-                    <div class="space-y-2 mb-6">
-                        <p class="text-xs text-slate-500 flex items-center gap-2">
-                            <i class="fa-solid fa-location-dot w-4"></i> Place de la République
-                        </p>
-                    </div>
-                    <a href="#" class="text-[10px] font-black uppercase tracking-widest text-terroir hover:text-gold flex items-center gap-2">
-                        Découvrir <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+        <a href="#" class="article-card">
+          <div class="article-card-img">
+            <!-- À REMPLACER : photo du marché ou des producteurs -->
+            <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div class="article-card-content">
+            <span class="tag">Marché</span>
+            <h5>Le marché du vendredi fait peau neuve</h5>
+            <span class="date">5 Mai · Place du marché</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="article-card-img">
+            <!-- À REMPLACER : photo de la chasse au trésor / animation jeunesse -->
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" alt="">
+          </div>
+          <div class="article-card-content">
+            <span class="tag">Animation</span>
+            <h5>Chasse au trésor : c'est parti pour l'édition 2026</h5>
+            <span class="date">2 Mai · Centre-bourg</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANNUAIRE -->
+<section id="annuaire" class="annuaire">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head-text">
+        <h3>L'<em>annuaire</em><br>des adhérents.</h3>
+        <p>Soutenir l'économie locale, c'est préserver l'âme de notre village. Découvrez les commerçants qui font vivre Pont-sur-Yonne.</p>
+      </div>
+    </div>
+
+    <div class="filters">
+      <button class="filter-pill active" data-cat="tous">Tous</button>
+      <button class="filter-pill" data-cat="bouche">Métiers de bouche</button>
+      <button class="filter-pill" data-cat="resto">Restauration</button>
+      <button class="filter-pill" data-cat="services">Services & Soins</button>
+      <button class="filter-pill" data-cat="hebergement">Hébergement</button>
+      <button class="filter-pill" data-cat="autres">Autres</button>
+    </div>
+
+    <div class="cards-grid">
+      <!-- ============================================================
+           ANNUAIRE — Données vérifiées (Pages Jaunes, Mappy, Florajet)
+           Photos : placeholders Unsplash. À REMPLACER par photos réelles
+           des devantures (à prendre par vos soins).
+           ============================================================ -->
+
+      <!-- Le Baraka — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="resto">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Restaurant</span>
+          <!-- À REMPLACER : devanture du Baraka, 4 rue du Pont -->
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="">
         </div>
-    </section>
-
-    <!-- SECTION NEWSLETTER -->
-    <section id="newsletter" class="py-24 bg-terroir text-white text-center relative overflow-hidden">
-        <div class="container mx-auto max-w-2xl px-6 relative z-10">
-            <h3 class="text-4xl font-bold mb-6 italic text-gold">La Gazette de l'ACPI</h3>
-            <p class="mb-10 text-slate-300 font-light leading-relaxed">
-                Recevez chaque semaine les meilleures offres, les nouveaux produits et les événements de nos commerçants.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Votre adresse email" class="flex-1 bg-white/10 border border-white/20 p-4 rounded-full text-white outline-none focus:border-gold transition-all">
-                <button class="bg-gold hover:bg-[#b08d4a] text-white px-10 py-4 rounded-full font-bold shadow-xl transition-all uppercase text-xs tracking-widest">
-                    S'abonner
-                </button>
-            </div>
+        <div class="shop-card-body">
+          <h5>Le Baraka</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Spécialités marocaines · Couscous, tajines, pâtisseries.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 4 rue du Pont</p>
+          <a href="tel:+33689481122" class="shop-card-link">06 89 48 11 22 <i class="fa-solid fa-phone"></i></a>
         </div>
-    </section>
+      </article>
 
-    <footer class="py-12 text-center text-slate-400 text-[10px] uppercase tracking-[0.3em]">
-        <p>© 2026 ACPI - L'élégance du commerce de proximité</p>
-    </footer>
+      <!-- Au Pont Fleuri — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="services">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Fleuriste</span>
+          <!-- À REMPLACER : devanture Au Pont Fleuri, 12 rue Carnot -->
+          <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Au Pont Fleuri</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Fleurs, plantes, livraison. Réseau Florajet.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 12 rue Carnot</p>
+          <a href="tel:+33386668343" class="shop-card-link">03 86 66 83 43 <i class="fa-solid fa-phone"></i></a>
+        </div>
+      </article>
 
+      <!-- Le Fournil de la Gare — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="bouche">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Boulangerie</span>
+          <!-- À REMPLACER : devanture Le Fournil de la Gare, 24 rue de la Gare -->
+          <img src="https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Le Fournil de la Gare</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Pains, pâtisseries, salon de thé. Ouvert 7j/7.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 24 rue de la Gare</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Maison Magnoni Frères — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="bouche">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Boucherie</span>
+          <!-- À REMPLACER : devanture Maison Magnoni Frères -->
+          <img src="https://images.unsplash.com/photo-1607013251379-e6eecfffe234?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Maison Magnoni Frères</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Boucherie · Charcuterie · Traiteur. Produits du terroir.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> ZA, 4 chemin des Amoureux</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Vival — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="bouche">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Épicerie</span>
+          <!-- À REMPLACER : devanture Vival, 27 Place Eugène Petit -->
+          <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Vival Pont-sur-Yonne</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Alimentation générale, produits frais, bio et locaux.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 27 Place Eugène Petit</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Hostellerie de l'Écu — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="hebergement">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Hôtel-Restaurant</span>
+          <!-- À REMPLACER : devanture Hostellerie de l'Écu, 6 rue de la Résistance -->
+          <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Hostellerie de l'Écu</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Hôtel et restaurant traditionnel au cœur du village.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 6 rue de la Résistance</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- Pizza du Vieux Pont — VÉRIFIÉ -->
+      <article class="shop-card" data-cat="resto">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Pizzeria</span>
+          <!-- À REMPLACER : devanture Pizza du Vieux Pont -->
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>Pizza du Vieux Pont</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">Pizzeria et restaurant italien. Sur place ou à emporter.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 27 Avenue du Général Leclerc</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- La Graineterie — Adhérent (vous) -->
+      <article class="shop-card" data-cat="hebergement">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Locations meublées</span>
+          <!-- À REMPLACER : photo de La Graineterie -->
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>La Graineterie</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">5 appartements meublés tout confort. Aston, Gordini, Indus, Le Vitrine, Orge.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 32 rue des Tuileries</p>
+          <a href="https://www.lagraineterie89.com" target="_blank" rel="noopener" class="shop-card-link">lagraineterie89.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </div>
+      </article>
+
+      <!-- KM99 — Adhérent (vous) -->
+      <article class="shop-card" data-cat="hebergement">
+        <div class="shop-card-img">
+          <span class="shop-card-cat">Locations meublées</span>
+          <!-- À REMPLACER : photo de KM99 -->
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80" alt="">
+        </div>
+        <div class="shop-card-body">
+          <h5>KM99</h5>
+          <p class="shop-card-desc" style="font-size:0.82rem;color:#1c2620;opacity:0.7;margin-bottom:0.8rem;">6 appartements thématiques : Mustang, Cox, Sesame, Chic, Combi, Chalet.</p>
+          <p class="shop-card-addr"><i class="fa-solid fa-location-dot"></i> 1 Avenue du Général Leclerc</p>
+          <a href="#" class="shop-card-link">Voir la fiche <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </div>
+
+    <!-- Note pour les visiteurs -->
+    <p style="text-align:center;margin-top:3rem;font-size:0.85rem;color:#4a7a5c;font-style:italic;">
+      Vous êtes commerçant à Pont-sur-Yonne et n'apparaissez pas ici ?
+      <a href="mailto:contact@acpy-pontsuryonne.fr" style="color:#c66b3d;font-weight:600;text-decoration:underline;">Rejoignez l'ACPY →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ÉVÉNEMENT MIS EN AVANT -->
+<section id="evenement" class="event-banner">
+  <div class="container">
+    <div class="event-grid">
+      <div class="event-img">
+        <!-- À REMPLACER : photo de la chasse au trésor 2025, du marché de Noël ou autre événement ACPY -->
+        <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=1000&q=80" alt="Événement">
+      </div>
+      <div class="event-content">
+        <span class="eyebrow"><i class="fa-solid fa-star"></i> Événement Phare</span>
+        <h3>Chasse au trésor <em>en village</em>.</h3>
+        <p>
+          Petits et grands, partez à la découverte de Pont-sur-Yonne à travers une chasse au trésor organisée par l'ACPY. Les commerçants jouent le jeu, des indices dans les vitrines, un trésor à dénicher dans le centre-bourg.
+        </p>
+        <div class="event-meta">
+          <div class="event-meta-item">
+            <small>Date</small>
+            <div>15 Juin 2026</div>
+          </div>
+          <div class="event-meta-item">
+            <small>Lieu</small>
+            <div>Centre-bourg</div>
+          </div>
+          <div class="event-meta-item">
+            <small>Tarif</small>
+            <div>Gratuit</div>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">
+          <i class="fa-solid fa-map"></i> Récupérer ma carte
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter" class="newsletter">
+  <div class="container">
+    <div class="newsletter-content">
+      <div class="eyebrow">La Gazette</div>
+      <h3>Une lettre <em>par semaine</em>.<br>Pas plus, pas moins.</h3>
+      <p>Les bons plans, les nouveautés, les événements de nos commerçants. Concise, locale, sans spam.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Merci ✓';">
+        <input type="email" placeholder="votre@email.fr" required>
+        <button type="submit">S'abonner</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-acpy.png" alt="Logo ACPY">
+        <p>"Le commerce de proximité, c'est une rencontre. Pas une transaction."</p>
+      </div>
+      <div class="footer-col">
+        <h6>Découvrir</h6>
+        <ul>
+          <li><a href="#mag">Le Mag</a></li>
+          <li><a href="#annuaire">Annuaire</a></li>
+          <li><a href="#evenement">Événements</a></li>
+          <li><a href="#newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Adhérents</h6>
+        <ul>
+          <li><a href="publier.html">Publier une actu</a></li>
+          <li><a href="#">Rejoindre l'ACPY</a></li>
+          <li><a href="#">Espace privé</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="mailto:contact@acpy-pontsuryonne.fr">contact@acpy-pontsuryonne.fr</a></li>
+          <li><a href="#">89140 Pont-sur-Yonne</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ACPY · Association des Commerçants de Pont-sur-Yonne</span>
+      <div class="socials">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Filtres annuaire — filtrage réel par catégorie
+document.querySelectorAll('.filter-pill').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.shop-card').forEach(card => {
+      if (cat === 'tous' || card.dataset.cat === cat) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
